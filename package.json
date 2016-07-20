@@ -2,7 +2,9 @@
   "name": "kunderjobtest",
   "version": "1.1.1",
   "description": "kunderJobTest: An Ionic project",
+  "private": true,
   "dependencies": {
+    "express": "~4.14.0",
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
     "gulp-concat": "^2.2.0",
