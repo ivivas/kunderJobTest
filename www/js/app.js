@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
     .state('tab.comic-detail', {
-      url: '/chats/:chatId',
+      url: '/comics/:comicId',
       views: {
         'tab-comics': {
           templateUrl: 'templates/comic-detail.html',
