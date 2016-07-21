@@ -5,14 +5,29 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{comic.title}}">
-  <ion-content class="padding">
-    <img ng-src="{{comic.thumbnailPortrait}}" style="width: 64px; height: 64px">
-    <p>
-      {{comic.title}}
-      {{comic.series}}
-      {{comic.format}}
-      {{comic.url}}
-      {{comic.onsaleDate}}
-    </p>
+  <ion-content class="padding comic-detail-content">
+    <img class="comic-detail-img" ng-src="{{comic.thumbnailPortrait}}">
+    <table>
+      <tr>
+        <td><strong>Título y año de producción</strong></td>
+        <td>{{comic.title}}</td>
+      </tr>
+      <tr>
+        <td><strong>Serie</strong></td>
+        <td>{{comic.series}}</td>
+      </tr>
+      <tr>
+        <td><strong>Formato</strong></td>
+        <td>{{comic.format}}</td>
+      </tr>
+      <tr>
+        <td><strong>Fecha de inicio de venta</strong></td>
+        <td>{{comic.onsaleDate}}</td>
+      </tr>
+      <tr>
+        <td><strong>URL oficial</strong></td>
+        <td><a href="{{comic.url}}" target="_blank">Ir al enlace</a></td>
+      </tr>
+    </table>
   </ion-content>
 </ion-view>

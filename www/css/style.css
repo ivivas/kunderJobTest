@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+
+/* ///////////////////////
+  comic-detail style
+  ////////////////////////
+*/
+.comic-detail-content {
+  text-align: center;
+}
+  .comic-detail-img {
+    margin: 25px auto 20px auto;
+    box-shadow: 10px 10px 5px #888888;
+  }
+  .comic-detail-content table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .comic-detail-content td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }

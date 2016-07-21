@@ -24,7 +24,6 @@ angular.module('starter.controllers', [])
         comics.push({id: comicObject.data.results[i].id,
                      title: comicObject.data.results[i].title,
                      thumbnailSquare: comicObject.data.results[i].thumbnail.path + "/standard_large.jpg",
-                     thumbnailPortrait: comicObject.data.results[i].thumbnail.path + "/portrait_xlarge.jpg",
                      format: comicObject.data.results[i].format,
                      url: comicObject.data.results[i].urls[0].url,
                      series: comicObject.data.results[i].series.name,
@@ -53,7 +52,6 @@ angular.module('starter.controllers', [])
       comic.series = comicObject.data.results[0].series.name;
       comic.onsaleDate = comicObject.data.results[0].dates[0].date;
 
-      console.log(comic);
       $scope.comic = comic;
   });
 });
