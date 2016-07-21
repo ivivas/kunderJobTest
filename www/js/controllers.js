@@ -39,7 +39,7 @@ angular.module('starter.controllers', [])
       var apikey = "f528484f82831a33b68df91a847bd45a";
       var hash = "780f995c4717391fae2df679e3abaccd";
       var ts = "1469041077";
-      var baseUrl = "http://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&orderBy=onsaleDate&limit=30";
+      var baseUrl = "https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&orderBy=onsaleDate&limit=30";
       var requestUrl = baseUrl + "&startYear=" + year + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
       $http.get(requestUrl).then(function(response) {
           var comicObject = response.data;
