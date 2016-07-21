@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
   var apikey = "f528484f82831a33b68df91a847bd45a";
   var hash = "780f995c4717391fae2df679e3abaccd";
   var ts = "1469041077";
-  var baseUrl = "http://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&&dateRange=2005-01-01%2C2010-01-01&orderBy=title&limit=50";
+  var baseUrl = "https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&&dateRange=2005-01-01%2C2010-01-01&orderBy=title&limit=50";
   var requestUrl = baseUrl + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
   $http.get(requestUrl).then(function(response) {
       var comicObject = response.data;
@@ -40,7 +40,7 @@ angular.module('starter.controllers', [])
   var hash = "780f995c4717391fae2df679e3abaccd";
   var ts = "1469041077";
   var id = $stateParams.comicId;
-  var baseUrl = "http://gateway.marvel.com/v1/public/comics/";
+  var baseUrl = "https://gateway.marvel.com/v1/public/comics/";
   var requestUrl = baseUrl + id + "?ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
   $http.get(requestUrl).then(function(response) {
       var comicObject = response.data;
