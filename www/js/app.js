@@ -57,15 +57,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'ComicDetailCtrl'
         }
       }
-    })
-    .state('tab.search', {
-      url: '/search',
-      views: {
-        'tab-search': {
-          templateUrl: 'templates/tab-search.html',
-          controller: 'SearchCtrl'
-        }
-      }
     });
 
   // if none of the above states are matched, use this as the fallback

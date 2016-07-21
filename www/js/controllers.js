@@ -1,13 +1,31 @@
 angular.module('starter.controllers', [])
 
-.controller('SearchCtrl', ['$scope', function($scope) {
-      $scope.submit = function() {
-        if ($scope.text) {
-          //$scope.list.push(this.text);
-          console.log(this.text);
-        }
-      };
-    }])
+.controller('SearchCtrl', function($scope, $http) {
+  $scope.submit = function() {
+      var year = this.text;
+      var apikey = "f528484f82831a33b68df91a847bd45a";
+      var hash = "780f995c4717391fae2df679e3abaccd";
+      var ts = "1469041077";
+      var baseUrl = "http://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&orderBy=onsaleDate&limit=30";
+      var requestUrl = baseUrl + "&startYear=" + year + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
+      $http.get(requestUrl).then(function(response) {
+          var comicObject = response.data;
+          var comics = [];
+          for (var i = 0; i < 30; i++) {
+            comics.push({id: comicObject.data.results[i].id,
+                         title: comicObject.data.results[i].title,
+                         thumbnailSquare: comicObject.data.results[i].thumbnail.path + "/standard_large.jpg",
+                         format: comicObject.data.results[i].format,
+                         url: comicObject.data.results[i].urls[0].url,
+                         series: comicObject.data.results[i].series.name,
+                         onsaleDate: comicObject.data.results[i].dates[0].date,
+            });
+          }
+          $scope.comics = comics;
+      });
+  };
+})
+
 .controller('ComicsCtrl', function($scope, $http) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -21,12 +39,12 @@ angular.module('starter.controllers', [])
   var apikey = "f528484f82831a33b68df91a847bd45a";
   var hash = "780f995c4717391fae2df679e3abaccd";
   var ts = "1469041077";
-  var baseUrl = "https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&&dateRange=2005-01-01%2C2010-01-01&orderBy=title&limit=50";
+  var baseUrl = "https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&&dateRange=2005-01-01%2C2010-01-01&orderBy=title&limit=30";
   var requestUrl = baseUrl + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
   $http.get(requestUrl).then(function(response) {
       var comicObject = response.data;
       var comics = [];
-      for (var i = 0; i < 50; i++) {
+      for (var i = 0; i < 30; i++) {
         comics.push({id: comicObject.data.results[i].id,
                      title: comicObject.data.results[i].title,
                      thumbnailSquare: comicObject.data.results[i].thumbnail.path + "/standard_large.jpg",

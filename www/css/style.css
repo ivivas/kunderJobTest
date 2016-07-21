@@ -18,6 +18,13 @@
   font-family: 'Marvel', sans-serif !important;
   font-size: 20px;
 }
+.button  {
+  background-color: #eee;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
 
 /* ///////////////////////
   comic-detail style
@@ -59,14 +66,3 @@
   .bar .title, .bar .back-button {
     color: #fff !important;
   }
-
-/* ///////////////////////
-  search-tab style
-  ////////////////////////
-*/
-.year-search-content .button  {
-  background-color: #eee;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-}
