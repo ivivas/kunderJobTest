@@ -1,6 +1,25 @@
 /* Empty. Add your own CSS if you like */
 
 /* ///////////////////////
+  tab-comic style
+  ////////////////////////
+*/
+.main-view-content {
+  text-align: center;
+}
+  .main-view-content h2 {
+    font-family: 'Marvel', sans-serif;
+    margin-bottom: 30px;
+  }
+  .main-view-content img {
+    width: 100%;
+  }
+.items-list h2 {
+  font-family: 'Marvel', sans-serif !important;
+  font-size: 20px;
+}
+
+/* ///////////////////////
   comic-detail style
   ////////////////////////
 */
@@ -20,4 +39,23 @@
       border: 1px solid #dddddd;
       text-align: left;
       padding: 8px;
+  }
+
+/* ///////////////////////
+  tabs style
+  ////////////////////////
+*/
+.tab-icon {
+  color: #ed1b24 !important;
+}
+
+/* ///////////////////////
+  top bar style
+  ////////////////////////
+*/
+.bar {
+  background-color: #ed1b24 !important;
+}
+  .bar .title, .bar .back-button {
+    color: #fff !important;
   }
