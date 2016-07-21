@@ -1,7 +1,13 @@
 angular.module('starter.controllers', [])
 
-.controller('SearchCtrl', function($scope) {})
-
+.controller('SearchCtrl', ['$scope', function($scope) {
+      $scope.submit = function() {
+        if ($scope.text) {
+          //$scope.list.push(this.text);
+          console.log(this.text);
+        }
+      };
+    }])
 .controller('ComicsCtrl', function($scope, $http) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

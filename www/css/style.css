@@ -59,3 +59,14 @@
   .bar .title, .bar .back-button {
     color: #fff !important;
   }
+
+/* ///////////////////////
+  search-tab style
+  ////////////////////////
+*/
+.year-search-content .button  {
+  background-color: #eee;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
