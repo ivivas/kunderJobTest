@@ -2,10 +2,9 @@
   <ion-content>
     <h2>Lista de Comics</h2>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="comic in comics" type="item-text-wrap" href="#/tab/comics/{{comic.id}}">
-        <img ng-src="{{comic.face}}">
-        <h2>{{comic.name}}</h2>
-        <p>{{comic.lastText}}</p>
+      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="comic in comics track by comic.id" type="item-text-wrap" href="#/tab/comics/{{comic.id}}">
+        <img ng-src="{{comic.thumbnail}}">
+        <h2>{{comic.title}}</h2>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
       </ion-item>
