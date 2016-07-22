@@ -44,17 +44,24 @@ angular.module('starter.controllers', [])
       $http.get(requestUrl).then(function(response) {
           var comicObject = response.data;
           var comics = [];
-          for (var i = 0; i < 30; i++) {
-            comics.push({id: comicObject.data.results[i].id,
-                         title: comicObject.data.results[i].title,
-                         thumbnailSquare: comicObject.data.results[i].thumbnail.path + "/standard_large.jpg",
-                         format: comicObject.data.results[i].format,
-                         url: comicObject.data.results[i].urls[0].url,
-                         series: comicObject.data.results[i].series.name,
-                         onsaleDate: comicObject.data.results[i].dates[0].date,
-            });
+          if (comicObject.data.count == 0) {
+            alert("Sin resultados. Intente otro año");
           }
-          $scope.comics = comics;
+          else {
+            for (var i = 0; i < comicObject.data.count; i++) {
+              comics.push({id: comicObject.data.results[i].id,
+                           title: comicObject.data.results[i].title,
+                           thumbnailSquare: comicObject.data.results[i].thumbnail.path + "/standard_large.jpg",
+                           format: comicObject.data.results[i].format,
+                           url: comicObject.data.results[i].urls[0].url,
+                           series: comicObject.data.results[i].series.name,
+                           onsaleDate: comicObject.data.results[i].dates[0].date,
+              });
+            }
+            //console.log("submit request:");
+            //console.log(comics);
+            $scope.comics = comics;
+          }
       });
   };
 })
