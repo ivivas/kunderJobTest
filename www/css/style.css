@@ -66,3 +66,13 @@
   .bar .title, .bar .back-button {
     color: #fff !important;
   }
+
+.tab-nav {
+  background-color: #ed1b24 !important;
+  visibility: hidden;
+  height: 0px !important;
+}
+
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    opacity: 0;
+}
