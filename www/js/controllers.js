@@ -35,20 +35,33 @@ angular.module('starter.controllers', [])
       $scope.comics = comics;
   });
   $scope.submit = function() {
-      var year = this.text;
+      var input = this.text;
+      var year = "";
+      var title = "";
       var apikey = "f528484f82831a33b68df91a847bd45a";
       var hash = "780f995c4717391fae2df679e3abaccd";
       var ts = "1469041077";
       var baseUrl = "https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&orderBy=onsaleDate&limit=30";
-      var requestUrl = baseUrl + "&startYear=" + year + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
+      var requestUrl = "";
+
+      // Validate input: If input is a year out of range, then is a comic title
+      if ((input < "1939") || (input > "2016")) { // Input is not a year, is a title
+        title = input;
+        title = title.replace(/ /g,"%20");
+        requestUrl = baseUrl + "&title=" + title + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
+      }
+      else { // Input is a year
+        year = input;
+        requestUrl = baseUrl + "&startYear=" + year + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
+      }
 
       $http.get(requestUrl).then(function(response) {
           var comicObject = response.data;
           var comics = [];
-          
+
           // validate input text
-          if ((comicObject.data.count == 0)||((year < "1939") || (year > "2016"))) {
-            alert("Sin resultados. Intente otro año");
+          if (comicObject.data.count == 0) {
+            alert("Sin resultados. Intente otro año o título");
           }
           else {
             for (var i = 0; i < comicObject.data.count; i++) {
@@ -61,8 +74,7 @@ angular.module('starter.controllers', [])
                            onsaleDate: comicObject.data.results[i].dates[0].date,
               });
             }
-            //console.log("submit request:");
-            console.log(comics);
+            //console.log(comics);
             $scope.comics = comics;
           }
       });
