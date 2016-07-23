@@ -41,10 +41,13 @@ angular.module('starter.controllers', [])
       var ts = "1469041077";
       var baseUrl = "https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&orderBy=onsaleDate&limit=30";
       var requestUrl = baseUrl + "&startYear=" + year + "&ts=" + ts + "&apikey=" + apikey + "&hash=" + hash;
+
       $http.get(requestUrl).then(function(response) {
           var comicObject = response.data;
           var comics = [];
-          if (comicObject.data.count == 0) {
+          
+          // validate input text
+          if ((comicObject.data.count == 0)||((year < "1939") || (year > "2016"))) {
             alert("Sin resultados. Intente otro año");
           }
           else {
@@ -59,7 +62,7 @@ angular.module('starter.controllers', [])
               });
             }
             //console.log("submit request:");
-            //console.log(comics);
+            console.log(comics);
             $scope.comics = comics;
           }
       });
